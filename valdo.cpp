@@ -135,7 +135,11 @@ Gauss::Gauss(string file) {
 }
 
 Gauss::~Gauss() {
-
+    for(int y = 0; y < dim; y++)    //delete colonne
+        delete[] matrice[y];
+    delete[] matrice;               //supprimé ligne
+    delete[] vecteur;                     //supprimer le tableau contenant le second membre
+    delete[] solution;              //supprimer le tableau contenant la solution
 }
 
 float** Gauss::getMatrice() {
